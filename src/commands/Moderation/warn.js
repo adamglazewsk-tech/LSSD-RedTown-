@@ -7,19 +7,19 @@ import { handleInteractionError } from '../../utils/errorHandler.js';
 import { InteractionHelper } from '../../utils/interactionHelper.js';
 export default {
     data: new SlashCommandBuilder()
-        .setName("warn")
-        .setDescription("Warn a user")
+        .setName("ostrzeżenie")
+        .setDescription("nadaj ostrzeżenie")
         .addUserOption((o) =>
             o
-                .setName("target")
+                .setName("cel")
                 .setRequired(true)
-                .setDescription("User to warn"),
+                .setDescription("osoba"),
         )
         .addStringOption((o) =>
             o
                 .setName("reason")
                 .setRequired(true)
-                .setDescription("Reason for the warning"),
+                .setDescription("powód"),
         )
         .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers),
     category: "moderation",
@@ -30,14 +30,14 @@ export default {
             logger.warn(`Warn interaction defer failed`, {
                 userId: interaction.user.id,
                 guildId: interaction.guildId,
-                commandName: 'warn'
+                commandName: 'ostrzeżenie'
             });
             return;
         }
 
         try {
                 if (!interaction.member.permissions.has(PermissionFlagsBits.ModerateMembers)) {
-                    throw new Error("You need the `Moderate Members` permission to issue warnings.");
+                    throw new Error("Muisz być w Biurze Szeryfa aby nadać ostrzeżenie.");
                 }
 
                 const target = interaction.options.getUser("target");
