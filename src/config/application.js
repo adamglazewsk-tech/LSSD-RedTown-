@@ -102,11 +102,11 @@ const appConfig = {
     joinToCreate: true,             
 
     
-    voice: true,                    
+    voice: false,                    
     search: true,                   
-    tools: true,                    
-    utility: true,                  
-    community: true,                
+    tools: false,                    
+    utility: false,                  
+    community: false,                
     fun: false,                      
 
     
