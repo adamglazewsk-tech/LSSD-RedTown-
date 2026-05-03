@@ -17,9 +17,9 @@ export default {
         )
         .addStringOption((o) =>
             o
-                .setName("reason")
+                .setName("powód")
                 .setRequired(true)
-                .setDescription("powód"),
+                .setDescription("powód nadania"),
         )
         .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers),
     category: "moderation",
